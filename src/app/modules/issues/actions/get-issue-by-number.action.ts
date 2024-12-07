@@ -3,7 +3,7 @@ import { environment } from "src/environments/environment";
 import { GitHubIssues } from "../interfaces/github-issues.interface";
 
 const BASE_URL = environment.baseUrl;
-const GITHUB_TOKEN = environment.githubToken
+const GITHUB_TOKEN = environment.githubToken;
 
 
 export const getIssueByNumber = async (issueNumber: string): Promise<GitHubIssues> => {
@@ -17,7 +17,7 @@ export const getIssueByNumber = async (issueNumber: string): Promise<GitHubIssue
             }
         });
 
-        if (!resp.ok) throw "Can't load issue";
+        if (!resp.ok) throw `Can't load issue ${issueNumber}`;
 
         const issue: GitHubIssues = await resp.json();
         console.log({issue});
@@ -25,6 +25,6 @@ export const getIssueByNumber = async (issueNumber: string): Promise<GitHubIssue
         return issue;
 
     } catch (error) {
-        throw "Can't load issue";
+        throw `Can't load issue ${issueNumber}`;
     }
 }

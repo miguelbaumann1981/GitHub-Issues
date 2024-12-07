@@ -3,7 +3,7 @@ import { environment } from "src/environments/environment";
 import { GitHubComment } from "../interfaces/github-comment.interface";
 
 const BASE_URL = environment.baseUrl;
-const GITHUB_TOKEN = environment.githubToken
+const GITHUB_TOKEN = environment.githubToken;
 
 
 export const getIssueByComment = async (issueNumber: string): Promise<GitHubComment[]> => {
